@@ -10,11 +10,14 @@
 
 static NSString *const kSearchResults   = @"results";
 static NSString *const kPOIName         = @"name";
+static NSString *const kPOIPlaceID      = @"place_id";
 static NSString *const kPOIIconURL      = @"icon";
 static NSString *const kPOIPhotos       = @"photos";
 static NSString *const kPOIPhotoRef     = @"photo_reference";
 static NSString *const kPOIAddress      = @"vicinity";
 static NSString *const kPOIRating       = @"rating";
+static NSString *const kPOIGeometry     = @"geometry";
+static NSString *const kPOILocation     = @"location";
 
 @implementation iPOIObject{
     NSDictionary *_poiResponse;
@@ -32,7 +35,7 @@ static NSString *const kPOIRating       = @"rating";
     return self;
 }
 
-- (NSInteger) count
+- (NSInteger) poiCount
 {
     if(_poiResponse)
     {
@@ -46,33 +49,47 @@ static NSString *const kPOIRating       = @"rating";
     }
 }
 
-
-- (NSInteger) photoCountPOIAtIndex:(NSInteger)index
+- (NSString *) poiPlaceIDAtIndex:(NSInteger)index;
 {
     if(_poiResponse)
     {
-        if(index >= [self count])
+        if(index >= [self poiCount])
         {
-            return 0;
+            return nil;
         }
         
         NSArray *poiArray = _poiResponse[kSearchResults];
         NSDictionary *poi = poiArray[index];
         
-        NSArray *photos = poi[kPOIPhotos];
+        NSString *placeID = poi[kPOIPlaceID];
         
-        if (photos)
-        {
-            return [photos count];
-        }
-        else
-        {
-            return 0;
-        }
+        return placeID;
     }
     else
     {
-        return 0;
+        return nil;
+    }
+}
+
+
+- (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index
+{
+    if(_poiResponse)
+    {
+        NSArray *poiArray = _poiResponse[kSearchResults];
+        NSDictionary *poi = poiArray[index];
+        
+        NSDictionary *poiLocation = [[poi valueForKey:kPOIGeometry] valueForKey:kPOILocation];
+        NSNumber *latitude = poiLocation[@"lat"];
+        NSNumber *longitude = poiLocation[@"lng"];
+        
+        CLLocationCoordinate2D poiCoordinate2D = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+        
+        return poiCoordinate2D;
+    }
+    else
+    {
+        return CLLocationCoordinate2DMake(0, 0);
     }
 }
 
@@ -80,7 +97,7 @@ static NSString *const kPOIRating       = @"rating";
 {
     if(_poiResponse)
     {
-        if(index >= [self count])
+        if(index >= [self poiCount])
         {
             return nil;
         }
@@ -98,48 +115,11 @@ static NSString *const kPOIRating       = @"rating";
     }
 }
 
-- (NSString *) poiPhotoRefPOIAtIndex:(NSInteger)index andPhotoAtIndex:(NSInteger)photoIndex
-{
-    if(_poiResponse)
-    {
-        if(index >= [self count])
-        {
-            return nil;
-        }
-        
-        NSArray *poiArray = _poiResponse[kSearchResults];
-        NSDictionary *poi = poiArray[index];
-        
-        NSArray *photos = poi[kPOIPhotos];
-        
-        if (photos)
-        {
-            if(photoIndex >= [photos count])
-            {
-                return nil;
-            }
-            
-            NSDictionary *photo = photos[photoIndex];
-            NSString *photoRef = photo[kPOIPhotoRef];
-            
-            return photoRef;
-        }
-        else
-        {
-            return nil;
-        }
-    }
-    else
-    {
-        return nil;
-    }
-}
-
 - (NSString *) poiIconURLStringAtIndex:(NSInteger)index
 {
     if(_poiResponse)
     {
-        if(index >= [self count])
+        if(index >= [self poiCount])
         {
             return nil;
         }
@@ -154,55 +134,6 @@ static NSString *const kPOIRating       = @"rating";
     else
     {
         return nil;
-    }
-}
-
-- (NSString *) poiAddressAtIndex:(NSInteger)index
-{
-    if(_poiResponse)
-    {
-        if(index >= [self count])
-        {
-            return nil;
-        }
-        
-        NSArray *poiArray = _poiResponse[kSearchResults];
-        NSDictionary *poi = poiArray[index];
-        
-        NSString *address = poi[kPOIAddress];
-        
-        return address;
-    }
-    else
-    {
-        return nil;
-    }
-}
-
-- (NSNumber *) poiRatingAtIndex:(NSInteger)index
-{
-    if(_poiResponse)
-    {
-        if(index >= [self count])
-        {
-            return @(0);
-        }
-        
-        NSArray *poiArray = _poiResponse[kSearchResults];
-        NSDictionary *poi = poiArray[index];
-        
-        NSNumber *rating = poi[kPOIRating];
-        
-        if (rating == nil)
-        {
-            return @(0);
-        }
-        
-        return rating;
-    }
-    else
-    {
-        return @(0);
     }
 }
 

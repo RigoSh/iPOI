@@ -11,6 +11,6 @@
 @interface POIPhotoCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
-@property (copy, nonatomic) UIImage *photoImage;
+@property (strong, nonatomic) UIImage *photoImage;
 
 @end

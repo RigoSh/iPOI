@@ -1,22 +1,22 @@
 //
-//  iPOIHTTPImageManager.m
+//  iPOIHTTPDetailDataManager.m
 //  iPOI
 //
-//  Created by Rigo on 07/12/2016.
+//  Created by Rigo on 08/12/2016.
 //  Copyright © 2016 Rigos. All rights reserved.
 //
 
-#import "iPOIHTTPImageManager.h"
+#import "iPOIHTTPDetailDataManager.h"
 
-static NSString *const baseURLString = @"https://maps.googleapis.com/maps/api/place/";
+static NSString *const baseURLString = @"https://maps.googleapis.com/maps/api/place/details/";
 
-@implementation iPOIHTTPImageManager{
+@implementation iPOIHTTPDetailDataManager{
     NSString *_apiKey;
 }
 
 + (instancetype) sharedInstanceWithAPIKey:(NSString *)apiKey
 {
-    static iPOIHTTPImageManager *_instance = nil;
+    static iPOIHTTPDetailDataManager *_instance = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -34,25 +34,24 @@ static NSString *const baseURLString = @"https://maps.googleapis.com/maps/api/pl
     if(self)
     {
         _apiKey = apiKey;
-        self.requestSerializer = [AFJSONRequestSerializer serializer];
-        self.responseSerializer = [AFImageResponseSerializer serializer];
+        self.requestSerializer  = [AFJSONRequestSerializer serializer];
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     
     return self;
 }
 
-- (void) getPOIPhotoWithRef:(NSString *)photoRef
-                    success:(void(^)(id responseObject))success
-                    failure:(void(^)(NSError *error))failure
+- (void) getPOIDetailWithPlaceID:(NSString *)placeID
+                         success:(void(^)(id responseObject))success
+                         failure:(void(^)(NSError *error))failure;
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     params[@"key"] = _apiKey;
-    params[@"photoreference"] = photoRef;
-    params[@"maxwidth"] = @(350);
-    params[@"maxheight"] = @(300);
+    params[@"placeid"] = placeID;
+    params[@"language"] = @"ru";
     
-    [self GET:@"photo"
+    [self GET:@"json"
    parameters:params
      progress:nil
       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

@@ -10,7 +10,6 @@
 
 @interface iPOIDetailController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (assign, nonatomic) NSInteger poiIndex;
-
+@property (copy, nonatomic) NSString *poiPlaceID;
 
 @end

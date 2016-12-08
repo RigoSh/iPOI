@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0762951DF95FFB0079BA02 /* iPOIMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0762941DF95FFB0079BA02 /* iPOIMainController.m */; };
 		0F24CA7F1DF81CF900FEF65B /* iPOIAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24CA7E1DF81CF900FEF65B /* iPOIAPI.m */; };
 		0F24CA831DF821DA00FEF65B /* iPOIHTTPDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24CA821DF821DA00FEF65B /* iPOIHTTPDataManager.m */; };
 		0F24CA861DF8248300FEF65B /* iPOIHTTPImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F24CA851DF8248300FEF65B /* iPOIHTTPImageManager.m */; };
+		0F7B10521DF974D200963671 /* glow-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B10501DF974D200963671 /* glow-marker.png */; };
+		0F7B10531DF974D200963671 /* glow-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F7B10511DF974D200963671 /* glow-marker@2x.png */; };
+		0F7B10571DF9881A00963671 /* iPOIDetailObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7B10561DF9881A00963671 /* iPOIDetailObject.m */; };
 		0FB80E601DF6BC9E00709113 /* iPOIObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB80E5F1DF6BC9E00709113 /* iPOIObject.m */; };
 		0FB80E621DF6C76800709113 /* PlaceHolderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB80E611DF6C76800709113 /* PlaceHolderImage.png */; };
 		0FC18BA11DF2C8B70006567F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC18BA01DF2C8B70006567F /* main.m */; };
@@ -17,19 +21,25 @@
 		0FC18BAA1DF2C8B70006567F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC18BA81DF2C8B70006567F /* Main.storyboard */; };
 		0FC18BAC1DF2C8B70006567F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC18BAB1DF2C8B70006567F /* Assets.xcassets */; };
 		0FC18BAF1DF2C8B70006567F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC18BAD1DF2C8B70006567F /* LaunchScreen.storyboard */; };
+		0FE93F5B1DF9A258004B772F /* iPOIHTTPDetailDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */; };
 		0FEF2E171DF864D100B65771 /* POIPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEF2E161DF864D100B65771 /* POIPhotoCell.m */; };
 		0FEF2E1A1DF86D6300B65771 /* iPOIDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEF2E191DF86D6300B65771 /* iPOIDetailController.m */; };
-		0FF1341B1DF609920073FD6C /* iPOITableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF1341A1DF609920073FD6C /* iPOITableController.m */; };
 		63D0F2B8A2C0B8B679327D48 /* libPods-iPOI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 937DA3C4FD7647329CD48A75 /* libPods-iPOI.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F0762931DF95FFB0079BA02 /* iPOIMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIMainController.h; sourceTree = "<group>"; };
+		0F0762941DF95FFB0079BA02 /* iPOIMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIMainController.m; sourceTree = "<group>"; };
 		0F24CA7D1DF81CF900FEF65B /* iPOIAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIAPI.h; sourceTree = "<group>"; };
 		0F24CA7E1DF81CF900FEF65B /* iPOIAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIAPI.m; sourceTree = "<group>"; };
 		0F24CA811DF821DA00FEF65B /* iPOIHTTPDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIHTTPDataManager.h; sourceTree = "<group>"; };
 		0F24CA821DF821DA00FEF65B /* iPOIHTTPDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIHTTPDataManager.m; sourceTree = "<group>"; };
 		0F24CA841DF8248300FEF65B /* iPOIHTTPImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIHTTPImageManager.h; sourceTree = "<group>"; };
 		0F24CA851DF8248300FEF65B /* iPOIHTTPImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIHTTPImageManager.m; sourceTree = "<group>"; };
+		0F7B10501DF974D200963671 /* glow-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glow-marker.png"; sourceTree = "<group>"; };
+		0F7B10511DF974D200963671 /* glow-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glow-marker@2x.png"; sourceTree = "<group>"; };
+		0F7B10551DF9881A00963671 /* iPOIDetailObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIDetailObject.h; sourceTree = "<group>"; };
+		0F7B10561DF9881A00963671 /* iPOIDetailObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIDetailObject.m; sourceTree = "<group>"; };
 		0FB80E5E1DF6BC9E00709113 /* iPOIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIObject.h; sourceTree = "<group>"; };
 		0FB80E5F1DF6BC9E00709113 /* iPOIObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIObject.m; sourceTree = "<group>"; };
 		0FB80E611DF6C76800709113 /* PlaceHolderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceHolderImage.png; sourceTree = "<group>"; };
@@ -41,12 +51,12 @@
 		0FC18BAB1DF2C8B70006567F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FC18BAE1DF2C8B70006567F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FC18BB01DF2C8B70006567F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FE93F591DF9A258004B772F /* iPOIHTTPDetailDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIHTTPDetailDataManager.h; sourceTree = "<group>"; };
+		0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIHTTPDetailDataManager.m; sourceTree = "<group>"; };
 		0FEF2E151DF864D100B65771 /* POIPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIPhotoCell.h; sourceTree = "<group>"; };
 		0FEF2E161DF864D100B65771 /* POIPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIPhotoCell.m; sourceTree = "<group>"; };
 		0FEF2E181DF86D6300B65771 /* iPOIDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIDetailController.h; sourceTree = "<group>"; };
 		0FEF2E191DF86D6300B65771 /* iPOIDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIDetailController.m; sourceTree = "<group>"; };
-		0FF134191DF609920073FD6C /* iPOITableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOITableController.h; sourceTree = "<group>"; };
-		0FF1341A1DF609920073FD6C /* iPOITableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOITableController.m; sourceTree = "<group>"; };
 		1D39433679207598475A335F /* Pods-iPOI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPOI.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPOI/Pods-iPOI.release.xcconfig"; sourceTree = "<group>"; };
 		858469784FF22B139A327042 /* Pods-iPOI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPOI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPOI/Pods-iPOI.debug.xcconfig"; sourceTree = "<group>"; };
 		937DA3C4FD7647329CD48A75 /* libPods-iPOI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iPOI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,11 +83,23 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		0F7B10541DF974E200963671 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0FB80E611DF6C76800709113 /* PlaceHolderImage.png */,
+				0F7B10501DF974D200963671 /* glow-marker.png */,
+				0F7B10511DF974D200963671 /* glow-marker@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		0FB80E5B1DF6BC5800709113 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				0FB80E5E1DF6BC9E00709113 /* iPOIObject.h */,
 				0FB80E5F1DF6BC9E00709113 /* iPOIObject.m */,
+				0F7B10551DF9881A00963671 /* iPOIDetailObject.h */,
+				0F7B10561DF9881A00963671 /* iPOIDetailObject.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -94,12 +116,14 @@
 		0FB80E5D1DF6BC6300709113 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0FF134191DF609920073FD6C /* iPOITableController.h */,
-				0FF1341A1DF609920073FD6C /* iPOITableController.m */,
+				0F0762931DF95FFB0079BA02 /* iPOIMainController.h */,
+				0F0762941DF95FFB0079BA02 /* iPOIMainController.m */,
 				0FEF2E181DF86D6300B65771 /* iPOIDetailController.h */,
 				0FEF2E191DF86D6300B65771 /* iPOIDetailController.m */,
 				0F24CA811DF821DA00FEF65B /* iPOIHTTPDataManager.h */,
 				0F24CA821DF821DA00FEF65B /* iPOIHTTPDataManager.m */,
+				0FE93F591DF9A258004B772F /* iPOIHTTPDetailDataManager.h */,
+				0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */,
 				0F24CA841DF8248300FEF65B /* iPOIHTTPImageManager.h */,
 				0F24CA851DF8248300FEF65B /* iPOIHTTPImageManager.m */,
 				0FEF2E151DF864D100B65771 /* POIPhotoCell.h */,
@@ -135,6 +159,7 @@
 				0FB80E5D1DF6BC6300709113 /* Controller */,
 				0FB80E5C1DF6BC5E00709113 /* View */,
 				0FB80E5B1DF6BC5800709113 /* Model */,
+				0F7B10541DF974E200963671 /* Resources */,
 				0FC18B9F1DF2C8B70006567F /* Supporting Files */,
 			);
 			path = iPOI;
@@ -143,7 +168,6 @@
 		0FC18B9F1DF2C8B70006567F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0FB80E611DF6C76800709113 /* PlaceHolderImage.png */,
 				0FC18BAB1DF2C8B70006567F /* Assets.xcassets */,
 				0FC18BB01DF2C8B70006567F /* Info.plist */,
 				0FC18BA01DF2C8B70006567F /* main.m */,
@@ -230,9 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC18BAF1DF2C8B70006567F /* LaunchScreen.storyboard in Resources */,
+				0F7B10531DF974D200963671 /* glow-marker@2x.png in Resources */,
 				0FB80E621DF6C76800709113 /* PlaceHolderImage.png in Resources */,
 				0FC18BAC1DF2C8B70006567F /* Assets.xcassets in Resources */,
 				0FC18BAA1DF2C8B70006567F /* Main.storyboard in Resources */,
+				0F7B10521DF974D200963671 /* glow-marker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,15 +317,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F7B10571DF9881A00963671 /* iPOIDetailObject.m in Sources */,
 				0F24CA861DF8248300FEF65B /* iPOIHTTPImageManager.m in Sources */,
 				0FB80E601DF6BC9E00709113 /* iPOIObject.m in Sources */,
-				0FF1341B1DF609920073FD6C /* iPOITableController.m in Sources */,
+				0F0762951DF95FFB0079BA02 /* iPOIMainController.m in Sources */,
 				0F24CA7F1DF81CF900FEF65B /* iPOIAPI.m in Sources */,
 				0F24CA831DF821DA00FEF65B /* iPOIHTTPDataManager.m in Sources */,
 				0FC18BA41DF2C8B70006567F /* AppDelegate.m in Sources */,
 				0FEF2E1A1DF86D6300B65771 /* iPOIDetailController.m in Sources */,
 				0FC18BA11DF2C8B70006567F /* main.m in Sources */,
 				0FEF2E171DF864D100B65771 /* POIPhotoCell.m in Sources */,
+				0FE93F5B1DF9A258004B772F /* iPOIHTTPDetailDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

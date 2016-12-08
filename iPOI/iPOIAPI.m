@@ -8,16 +8,24 @@
 
 #import "iPOIAPI.h"
 #import "iPOIObject.h"
+#import "iPOIDetailObject.h"
 #import "iPOIHTTPDataManager.h"
 #import "iPOIHTTPImageManager.h"
+#import "iPOIHTTPDetailDataManager.h"
+#import <UIImageView+AFNetworking.h>
 
-static NSInteger const maxPOICount = 20;
-static NSString *const kGoogleAPIKey = @"AIzaSyCM1fGbzyN878C0102xOSD_Cw_sfMPU0Pk";
+static NSInteger const maxPOICount       = 20;
+static NSInteger const maxPOIPhotoCount  = 10;
+static NSString *const kResponseStatus   = @"status";
+static NSString *const kPlaceHolderImage = @"PlaceHolderImage.png";
 
 @implementation iPOIAPI{
     iPOIObject *_poi;
+    iPOIDetailObject *_poiDetail;
     iPOIHTTPDataManager *_poiDataManager;
     iPOIHTTPImageManager *_poiImageManager;
+    iPOIHTTPDetailDataManager *_poiDetailDataManager;
+    NSString *_GoogleAPIKey;
 }
 
 + (instancetype) sharedInstance
@@ -38,12 +46,21 @@ static NSString *const kGoogleAPIKey = @"AIzaSyCM1fGbzyN878C0102xOSD_Cw_sfMPU0Pk
     
     if (self)
     {
-        _poiDataManager = [iPOIHTTPDataManager sharedInstanceWithAPIKey:kGoogleAPIKey];
-        _poiImageManager = [iPOIHTTPImageManager sharedInstanceWithAPIKey:kGoogleAPIKey];
+        _GoogleAPIKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GoogleAPIKey"];
+        _poiDataManager = [iPOIHTTPDataManager sharedInstanceWithAPIKey:_GoogleAPIKey];
+        _poiImageManager = [iPOIHTTPImageManager sharedInstanceWithAPIKey:_GoogleAPIKey];
+        _poiDetailDataManager = [iPOIHTTPDetailDataManager sharedInstanceWithAPIKey:_GoogleAPIKey];
     }
     
     return self;
 }
+
+- (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index
+{
+    return [_poi poiCoordinate2DAtIndex:index];
+}
+
+#pragma mark - POI object
 
 - (NSInteger) poiCount
 {
@@ -53,15 +70,20 @@ static NSString *const kGoogleAPIKey = @"AIzaSyCM1fGbzyN878C0102xOSD_Cw_sfMPU0Pk
     }
     else
     {
-        if ([_poi count] > maxPOICount)
+        if ([_poi poiCount] > maxPOICount)
         {
             return maxPOICount;
         }
         else
         {
-            return [_poi count];
+            return [_poi poiCount];
         }
     }
+}
+
+- (NSString *) poiPlaceIDAtIndex:(NSInteger)index
+{
+    return [_poi poiPlaceIDAtIndex:index];
 }
 
 - (NSString *) poiNameAtIndex:(NSInteger)index
@@ -74,15 +96,60 @@ static NSString *const kGoogleAPIKey = @"AIzaSyCM1fGbzyN878C0102xOSD_Cw_sfMPU0Pk
     return [_poi poiIconURLStringAtIndex:index];
 }
 
-- (NSString *) poiAddressAtIndex:(NSInteger)index
+#pragma mark - POI Detailed object
+
+- (NSInteger) poiDetailPhotoCount
 {
-    return [_poi poiAddressAtIndex:index];
+    if (!_poiDetail)
+    {
+        return 0;
+    }
+    else
+    {
+        if ([_poiDetail poiPhotoCount] > maxPOIPhotoCount)
+        {
+            return maxPOIPhotoCount;
+        }
+        else
+        {
+            return [_poiDetail poiPhotoCount];
+        }
+    }
+    
+    return [_poiDetail poiPhotoCount];
 }
 
-- (NSNumber *) poiRatingAtIndex:(NSInteger)index
+- (NSString *) poiDetailName
 {
-    return [_poi poiRatingAtIndex:index];
+    return [_poiDetail poiName];
 }
+
+- (NSString *) poiDetailAddress
+{
+    return [_poiDetail poiAddress];
+}
+
+- (NSString *) poiDetailPhone
+{
+    return [_poiDetail poiPhone];
+}
+
+- (NSNumber *) poiDetailRating
+{
+    return [_poiDetail poiRating];
+}
+
+- (NSString *) poiDetailPhotoRefAtIndex:(NSInteger)photoIndex
+{
+    return [_poiDetail poiPhotoRefAtIndex:photoIndex];
+}
+
+- (BOOL) poiDetailOpenNow
+{
+    return [_poiDetail poiOpenNow];
+}
+
+#pragma mark - common functions
 
 - (void) getPOIAtLocation:(CLLocation *)location
                   success:(void(^)())success
@@ -90,7 +157,16 @@ static NSString *const kGoogleAPIKey = @"AIzaSyCM1fGbzyN878C0102xOSD_Cw_sfMPU0Pk
 {
     [_poiDataManager getPOIAtLocation:location
                               success:^(id responseObject) {
-                                  _poi = [[iPOIObject alloc] initWithResponse:responseObject];
+                                  if([responseObject[kResponseStatus] isEqualToString:@"OK"] ||
+                                     [responseObject[kResponseStatus] isEqualToString:@"ZERO_RESULTS"])
+                                  {
+                                      _poi = [[iPOIObject alloc] initWithResponse:responseObject];
+                                  }
+                                  else
+                                  {
+                                      _poi = nil;
+                                  }
+                                  
                                   success();
                               }
                               failure:^(NSError *error) {
@@ -99,41 +175,77 @@ static NSString *const kGoogleAPIKey = @"AIzaSyCM1fGbzyN878C0102xOSD_Cw_sfMPU0Pk
                               }];
 }
 
-- (NSInteger) poiPhotoCountAtIndex:(NSInteger)index
+- (void) getPOIDetailWithPlaceID:(NSString *)placeID
+                         success:(void(^)())success
+                         failure:(void(^)(NSError *error))failure
 {
-    if (!_poi)
-    {
-        return 0;
-    }
-    else
-    {
-        if ([_poi count] > index)
-        {
-            return [_poi photoCountPOIAtIndex:index];
-        }
-        else
-        {
-            return 0;
-        }
-    }
+    [_poiDetailDataManager getPOIDetailWithPlaceID:placeID
+                                           success:^(id responseObject){
+                                               if([responseObject[kResponseStatus] isEqualToString:@"OK"] ||
+                                                  [responseObject[kResponseStatus] isEqualToString:@"ZERO_RESULTS"])
+                                               {
+                                                   _poiDetail = [[iPOIDetailObject alloc] initWithResponse:responseObject];
+                                               }
+                                               else
+                                               {
+                                                   _poiDetail = nil;
+                                               }
+                                               
+                                               success();
+                                           }
+                                           failure:^(NSError *error) {
+                                               _poiDetail = nil;
+                                               failure(error);
+                                           }];
 }
 
-- (NSString *) poiPhotoRefPOIAtIndex:(NSInteger)index andPhotoAtIndex:(NSInteger)photoIndex
+- (void) getPOIIconForCell:(UITableViewCell *)cell
+                AtIndexRow:(NSInteger)indexRow
+                   success:(void(^)(UIImage *image))success
+                   failure:(void(^)(NSError *error))failure
 {
-    return [_poi poiPhotoRefPOIAtIndex:index andPhotoAtIndex:photoIndex];
+    NSURL *iconURL = [NSURL URLWithString:[self poiIconURLStringAtIndex:indexRow]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:iconURL];
+    
+    [cell.imageView setImageWithURLRequest:request
+                          placeholderImage:[UIImage imageNamed:kPlaceHolderImage]
+                                   success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                       success(image);
+                                   } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                       failure(error);
+                                   }];
 }
 
 - (void) getPOIPhotoWithRef:(NSString *)photoRef
                     success:(void(^)(id responseObject))success
                     failure:(void(^)(NSError *error))failure;
 {
-    [_poiImageManager getPOIPhotoWithRef:photoRef
-                                 success:^(id responseObject) {
-                                     success(responseObject);
-                                 }
-                                 failure:^(NSError *error) {
-                                     failure(error);
-                                 }];
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:photoRef];
+    
+    if(imageData)
+    {
+        UIImage *image = [UIImage imageWithData:imageData];
+        
+        if (image)
+        {
+            success(image);
+        }
+        else
+        {
+            failure(nil);
+        }
+    }
+    else
+    {
+        [_poiImageManager getPOIPhotoWithRef:photoRef
+                                     success:^(id responseObject) {
+                                         [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(responseObject) forKey:photoRef];
+                                         success(responseObject);
+                                     }
+                                     failure:^(NSError *error) {
+                                         failure(error);
+                                     }];
+    }
 }
 
 @end

@@ -8,24 +8,41 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <UIKit/UIKit.h>
 
 @interface iPOIAPI : NSObject
 
 + (instancetype) sharedInstance;
 
+- (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index;
+
 - (NSInteger)  poiCount;
+- (NSString *) poiPlaceIDAtIndex:(NSInteger)index;
 - (NSString *) poiNameAtIndex:(NSInteger)index;
 - (NSString *) poiIconURLStringAtIndex:(NSInteger)index;
-- (NSString *) poiAddressAtIndex:(NSInteger)index;
-- (NSNumber *) poiRatingAtIndex:(NSInteger)index;
 
-- (NSInteger)  poiPhotoCountAtIndex:(NSInteger)index;
-- (NSString *) poiPhotoRefPOIAtIndex:(NSInteger)index andPhotoAtIndex:(NSInteger)photoIndex;
+- (NSInteger)  poiDetailPhotoCount;
+- (NSString *) poiDetailName;
+- (NSString *) poiDetailAddress;
+- (NSString *) poiDetailPhone;
+- (NSNumber *) poiDetailRating;
+- (NSString *) poiDetailPhotoRefAtIndex:(NSInteger)photoIndex;
+- (BOOL)       poiDetailOpenNow;
 
 - (void) getPOIAtLocation:(CLLocation *)location
                   success:(void(^)())success
                   failure:(void(^)(NSError *error))failure;
-                           
+
+- (void) getPOIIconForCell:(UITableViewCell *)cell
+                AtIndexRow:(NSInteger)indexRow
+                   success:(void(^)(UIImage *image))success
+                   failure:(void(^)(NSError *error))failure;
+
+- (void) getPOIDetailWithPlaceID:(NSString *)placeID
+                         success:(void(^)())success
+                         failure:(void(^)(NSError *error))failure;
+
 - (void) getPOIPhotoWithRef:(NSString *)photoRef
                     success:(void(^)(id responseObject))success
                     failure:(void(^)(NSError *error))failure;
