@@ -22,6 +22,9 @@
 		0FC18BAC1DF2C8B70006567F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC18BAB1DF2C8B70006567F /* Assets.xcassets */; };
 		0FC18BAF1DF2C8B70006567F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC18BAD1DF2C8B70006567F /* LaunchScreen.storyboard */; };
 		0FE93F5B1DF9A258004B772F /* iPOIHTTPDetailDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */; };
+		0FED8D0A1DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FED8D091DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png */; };
+		0FED8D0C1DFAB48D00E7A146 /* ic_qu_direction_mylocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FED8D0B1DFAB48D00E7A146 /* ic_qu_direction_mylocation.png */; };
+		0FED8D181DFAD13E00E7A146 /* iPOIPlaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FED8D171DFAD13E00E7A146 /* iPOIPlaceController.m */; };
 		0FEF2E171DF864D100B65771 /* POIPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEF2E161DF864D100B65771 /* POIPhotoCell.m */; };
 		0FEF2E1A1DF86D6300B65771 /* iPOIDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEF2E191DF86D6300B65771 /* iPOIDetailController.m */; };
 		63D0F2B8A2C0B8B679327D48 /* libPods-iPOI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 937DA3C4FD7647329CD48A75 /* libPods-iPOI.a */; };
@@ -53,6 +56,10 @@
 		0FC18BB01DF2C8B70006567F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FE93F591DF9A258004B772F /* iPOIHTTPDetailDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIHTTPDetailDataManager.h; sourceTree = "<group>"; };
 		0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIHTTPDetailDataManager.m; sourceTree = "<group>"; };
+		0FED8D091DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googlelogo_light_56x20_with_2_stroke_color_60x22pt.png; sourceTree = "<group>"; };
+		0FED8D0B1DFAB48D00E7A146 /* ic_qu_direction_mylocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_qu_direction_mylocation.png; sourceTree = "<group>"; };
+		0FED8D161DFAD13E00E7A146 /* iPOIPlaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIPlaceController.h; sourceTree = "<group>"; };
+		0FED8D171DFAD13E00E7A146 /* iPOIPlaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPOIPlaceController.m; sourceTree = "<group>"; };
 		0FEF2E151DF864D100B65771 /* POIPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIPhotoCell.h; sourceTree = "<group>"; };
 		0FEF2E161DF864D100B65771 /* POIPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIPhotoCell.m; sourceTree = "<group>"; };
 		0FEF2E181DF86D6300B65771 /* iPOIDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPOIDetailController.h; sourceTree = "<group>"; };
@@ -79,6 +86,12 @@
 			children = (
 				0F24CA7D1DF81CF900FEF65B /* iPOIAPI.h */,
 				0F24CA7E1DF81CF900FEF65B /* iPOIAPI.m */,
+				0F24CA811DF821DA00FEF65B /* iPOIHTTPDataManager.h */,
+				0F24CA821DF821DA00FEF65B /* iPOIHTTPDataManager.m */,
+				0FE93F591DF9A258004B772F /* iPOIHTTPDetailDataManager.h */,
+				0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */,
+				0F24CA841DF8248300FEF65B /* iPOIHTTPImageManager.h */,
+				0F24CA851DF8248300FEF65B /* iPOIHTTPImageManager.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -86,6 +99,8 @@
 		0F7B10541DF974E200963671 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0FED8D0B1DFAB48D00E7A146 /* ic_qu_direction_mylocation.png */,
+				0FED8D091DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png */,
 				0FB80E611DF6C76800709113 /* PlaceHolderImage.png */,
 				0F7B10501DF974D200963671 /* glow-marker.png */,
 				0F7B10511DF974D200963671 /* glow-marker@2x.png */,
@@ -120,12 +135,8 @@
 				0F0762941DF95FFB0079BA02 /* iPOIMainController.m */,
 				0FEF2E181DF86D6300B65771 /* iPOIDetailController.h */,
 				0FEF2E191DF86D6300B65771 /* iPOIDetailController.m */,
-				0F24CA811DF821DA00FEF65B /* iPOIHTTPDataManager.h */,
-				0F24CA821DF821DA00FEF65B /* iPOIHTTPDataManager.m */,
-				0FE93F591DF9A258004B772F /* iPOIHTTPDetailDataManager.h */,
-				0FE93F5A1DF9A258004B772F /* iPOIHTTPDetailDataManager.m */,
-				0F24CA841DF8248300FEF65B /* iPOIHTTPImageManager.h */,
-				0F24CA851DF8248300FEF65B /* iPOIHTTPImageManager.m */,
+				0FED8D161DFAD13E00E7A146 /* iPOIPlaceController.h */,
+				0FED8D171DFAD13E00E7A146 /* iPOIPlaceController.m */,
 				0FEF2E151DF864D100B65771 /* POIPhotoCell.h */,
 				0FEF2E161DF864D100B65771 /* POIPhotoCell.m */,
 			);
@@ -253,7 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FED8D0C1DFAB48D00E7A146 /* ic_qu_direction_mylocation.png in Resources */,
 				0FC18BAF1DF2C8B70006567F /* LaunchScreen.storyboard in Resources */,
+				0FED8D0A1DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png in Resources */,
 				0F7B10531DF974D200963671 /* glow-marker@2x.png in Resources */,
 				0FB80E621DF6C76800709113 /* PlaceHolderImage.png in Resources */,
 				0FC18BAC1DF2C8B70006567F /* Assets.xcassets in Resources */,
@@ -326,6 +339,7 @@
 				0FC18BA41DF2C8B70006567F /* AppDelegate.m in Sources */,
 				0FEF2E1A1DF86D6300B65771 /* iPOIDetailController.m in Sources */,
 				0FC18BA11DF2C8B70006567F /* main.m in Sources */,
+				0FED8D181DFAD13E00E7A146 /* iPOIPlaceController.m in Sources */,
 				0FEF2E171DF864D100B65771 /* POIPhotoCell.m in Sources */,
 				0FE93F5B1DF9A258004B772F /* iPOIHTTPDetailDataManager.m in Sources */,
 			);

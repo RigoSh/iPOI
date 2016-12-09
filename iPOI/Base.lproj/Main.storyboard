@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="e4b-KE-ORa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XKt-1h-Dje">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,17 +63,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.092830963432788849" green="0.48588460683822632" blue="0.95404869318008423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Поиск" style="done" id="WPf-6S-t7k">
-                            <color key="tintColor" red="0.19648054242134094" green="0.80875784158706665" blue="0.074268124997615814" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xp4-0v-djx"/>
-                        <barButtonItem title="Геолокация" id="4sc-qt-3M6"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Поиск достопримечательностей" id="1aM-hX-jdS">
                         <barButtonItem key="backBarButtonItem" title="назад" id="RBe-fk-Ttb"/>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="SMd-FY-x5R" id="CLh-Wf-GOq"/>
                         <outlet property="poiTableView" destination="LjX-Bc-vvB" id="lkB-O4-OPR"/>
@@ -81,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clh-cJ-iNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400" y="-585.32608695652175"/>
+            <point key="canvasLocation" x="2305.7971014492755" y="-585.32608695652175"/>
         </scene>
         <!--Достопримечательность-->
         <scene sceneID="IRr-SM-1kO">
@@ -201,27 +194,172 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPg-bB-n40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2255.1999999999998" y="-586.05697151424295"/>
+            <point key="canvasLocation" x="3162.3188405797105" y="-586.14130434782612"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Поиск-->
         <scene sceneID="N2t-A7-mZf">
             <objects>
-                <navigationController toolbarHidden="NO" id="e4b-KE-ORa" sceneMemberID="viewController">
+                <navigationController id="e4b-KE-ORa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Поиск" image="ic_qu_direction_mylocation.png" id="k4M-L8-xCe"/>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6U9-cO-gWi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.86502667354072327" green="0.92202453810930429" blue="0.9415016770362854" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="textColor" red="0.092830963432788849" green="0.48588460683822632" blue="0.95404869318008423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rWc-Mh-SKX">
-                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="bfR-hi-s7V" kind="relationship" relationship="rootViewController" id="n5d-yv-BKg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTx-E0-Ifg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="-585"/>
+            <point key="canvasLocation" x="1459.4202898550725" y="-585.32608695652175"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="tR2-qY-nix">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XKt-1h-Dje" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Fo9-RZ-ZDg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="e4b-KE-ORa" kind="relationship" relationship="viewControllers" id="xqQ-TO-PnH"/>
+                        <segue destination="6d4-zf-2jY" kind="relationship" relationship="viewControllers" id="axi-C7-5Ub"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYK-el-5En" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="586" y="-70"/>
+        </scene>
+        <!--Геолокация-->
+        <scene sceneID="IaL-Jj-ToF">
+            <objects>
+                <viewController id="HEy-Ex-QUM" customClass="iPOIPlaceController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uVi-hr-PKn"/>
+                        <viewControllerLayoutGuide type="bottom" id="qeB-Cl-dwL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QQL-a2-iWv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8h-cR-cP0">
+                                <rect key="frame" x="136" y="94" width="142" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.63868886229999999" green="0.8018862605" blue="0.92594999069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="выбрать город"/>
+                                <connections>
+                                    <action selector="citySearchTapped:" destination="HEy-Ex-QUM" eventType="touchUpInside" id="7i8-D3-dOs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-RC-fv3">
+                                <rect key="frame" x="143" y="257" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98132258650000004" green="0.95127249165046879" blue="0.52734619268529082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="выбрать место"/>
+                                <connections>
+                                    <action selector="placeSearchTapped:" destination="HEy-Ex-QUM" eventType="touchUpInside" id="ere-rH-MBo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ni6-7D-cej">
+                                <rect key="frame" x="70" y="148" width="275" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5N1-gG-IBH">
+                                <rect key="frame" x="94" y="301" width="227" height="58"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYp-O3-WWm">
+                                <rect key="frame" x="70" y="177" width="275" height="59"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryV-FB-zRr">
+                                <rect key="frame" x="94" y="413" width="227" height="106"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCO-GW-4U6">
+                                <rect key="frame" x="94" y="367" width="227" height="38"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Геолокация" id="uwE-Im-592">
+                        <barButtonItem key="backBarButtonItem" title="назад" id="EM9-ou-0ZT"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="cityGeoLocationLabel" destination="IYp-O3-WWm" id="ZRv-K3-3uM"/>
+                        <outlet property="cityNameLabel" destination="Ni6-7D-cej" id="7H9-nA-4Io"/>
+                        <outlet property="placeAddressLabel" destination="ryV-FB-zRr" id="fq7-kv-wvb"/>
+                        <outlet property="placeButton" destination="aaM-RC-fv3" id="9Ht-rC-mDH"/>
+                        <outlet property="placeNameLabel" destination="5N1-gG-IBH" id="5To-zF-zw5"/>
+                        <outlet property="placePhoneLabel" destination="vCO-GW-4U6" id="Wlr-MX-TwO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RcI-PS-c4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2305.7971014492755" y="359.51086956521743"/>
+        </scene>
+        <!--Геолокация-->
+        <scene sceneID="khu-MR-8Uq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6d4-zf-2jY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Геолокация" image="googlelogo_light_56x20_with_2_stroke_color_60x22pt.png" id="fW1-DI-Nhj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HzH-jQ-lmP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.81214175913808817" green="0.98132258650000004" blue="0.82056579462504131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <color key="textColor" red="0.18764636073201349" green="0.51393956218274117" blue="0.26984429628293621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HEy-Ex-QUM" kind="relationship" relationship="rootViewController" id="vSg-7O-Cdm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAb-OT-vyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457.9710144927537" y="359.51086956521743"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="googlelogo_light_56x20_with_2_stroke_color_60x22pt.png" width="60" height="22"/>
+        <image name="ic_qu_direction_mylocation.png" width="24" height="24"/>
+    </resources>
 </document>

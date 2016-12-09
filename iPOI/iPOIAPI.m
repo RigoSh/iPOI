@@ -205,7 +205,10 @@ static NSString *const kPlaceHolderImage = @"PlaceHolderImage.png";
                    failure:(void(^)(NSError *error))failure
 {
     NSURL *iconURL = [NSURL URLWithString:[self poiIconURLStringAtIndex:indexRow]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:iconURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:iconURL
+                                             cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                         timeoutInterval:60
+                             ];
     
     [cell.imageView setImageWithURLRequest:request
                           placeholderImage:[UIImage imageNamed:kPlaceHolderImage]
