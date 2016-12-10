@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XKt-1h-Dje">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="1" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQB-oZ-IEG" id="MH7-qB-w1n">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -50,7 +50,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9V-iv-RQK">
                                 <rect key="frame" x="136" y="256" width="142" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63868886232376099" green="0.80188626050949097" blue="0.92594999074935913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -258,7 +258,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8h-cR-cP0">
                                 <rect key="frame" x="136" y="94" width="142" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.63868886229999999" green="0.8018862605" blue="0.92594999069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,7 +269,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-RC-fv3">
                                 <rect key="frame" x="143" y="257" width="128" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98132258650000004" green="0.95127249165046879" blue="0.52734619268529082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -339,7 +339,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6d4-zf-2jY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Геолокация" image="googlelogo_light_56x20_with_2_stroke_color_60x22pt.png" id="fW1-DI-Nhj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HzH-jQ-lmP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HzH-jQ-lmP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.81214175913808817" green="0.98132258650000004" blue="0.82056579462504131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

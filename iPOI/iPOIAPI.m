@@ -13,6 +13,7 @@
 #import "iPOIHTTPImageManager.h"
 #import "iPOIHTTPDetailDataManager.h"
 #import <UIImageView+AFNetworking.h>
+#import <CoreData/CoreData.h>
 
 static NSInteger const maxPOICount       = 20;
 static NSInteger const maxPOIPhotoCount  = 10;
