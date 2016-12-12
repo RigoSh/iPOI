@@ -7,6 +7,7 @@
 //
 
 #import "iPOIAPI.h"
+#import "AppDelegate.h"
 #import "iPOIObject.h"
 #import "iPOIDetailObject.h"
 #import "iPOIHTTPDataManager.h"
@@ -19,6 +20,13 @@ static NSInteger const maxPOICount       = 20;
 static NSInteger const maxPOIPhotoCount  = 10;
 static NSString *const kResponseStatus   = @"status";
 static NSString *const kPlaceHolderImage = @"PlaceHolderImage.png";
+
+// CoreData keys
+static NSString *const kImageDataAttr      = @"data";
+static NSString *const kImageIDAttr        = @"imageID";
+static NSString *const kImageLastUsedAttr  = @"lastUsedTimestamp";
+static NSString *const kImageWithIDRequest = @"ImageWithID";
+static NSString *const kImageEntity        = @"Image";
 
 @implementation iPOIAPI{
     iPOIObject *_poi;
@@ -224,32 +232,84 @@ static NSString *const kPlaceHolderImage = @"PlaceHolderImage.png";
                     success:(void(^)(id responseObject))success
                     failure:(void(^)(NSError *error))failure;
 {
-    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:photoRef];
+    NSManagedObject *retrieveImageManagedObject = [self retrieveManagedObjectWIthID:photoRef];
     
-    if(imageData)
+    if (retrieveImageManagedObject)
     {
+        
+        NSData *imageData = [retrieveImageManagedObject valueForKey:kImageDataAttr];
         UIImage *image = [UIImage imageWithData:imageData];
         
-        if (image)
-        {
-            success(image);
-        }
-        else
-        {
-            failure(nil);
-        }
+        [self updateImageManagedObject:retrieveImageManagedObject];
+        success(image);
     }
     else
     {
         [_poiImageManager getPOIPhotoWithRef:photoRef
                                      success:^(id responseObject) {
                                          [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(responseObject) forKey:photoRef];
+                                         [self saveImage:responseObject WithID:photoRef];
                                          success(responseObject);
                                      }
                                      failure:^(NSError *error) {
                                          failure(error);
                                      }];
     }
+}
+
+- (NSManagedObject *)retrieveManagedObjectWIthID:(NSString *)imageID
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSDictionary *subs = @{@"ID" : imageID};
+    NSFetchRequest *request = [appDelegate.managedObjectModel fetchRequestFromTemplateWithName:kImageWithIDRequest substitutionVariables:subs];
+    
+    NSError *error = nil;
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:request
+                                                                       error:&error];
+    if(error == nil)
+    {
+        if(results.count == 0)
+        {
+            return nil;
+        }
+        
+        if(results.count > 1)
+        {
+            NSLog(@"in DataBase %lu rows for PhotoRef <%@>", (unsigned long)results.count, imageID);
+        }
+        
+        return [results firstObject];
+    }
+    else
+    {
+        NSLog(@"Error fetch request: %@", [error localizedDescription]);
+    }
+    
+    return nil;
+}
+
+- (void)saveImage:(UIImage *)image WithID:(NSString *)imageID
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSManagedObject *newImageManagedObject = [NSEntityDescription insertNewObjectForEntityForName:kImageEntity inManagedObjectContext:context];
+    
+    [newImageManagedObject setValue:imageID forKey:kImageIDAttr];
+    [newImageManagedObject setValue:UIImagePNGRepresentation(image) forKey:kImageDataAttr];
+    [newImageManagedObject setValue:[NSDate date] forKey:kImageLastUsedAttr];
+    
+    [appDelegate saveContext];
+}
+
+- (void)updateImageManagedObject:(NSManagedObject *)imageManagedObject
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [imageManagedObject setValue:[NSDate date] forKey:kImageLastUsedAttr];
+    
+    [appDelegate saveContext];
 }
 
 @end

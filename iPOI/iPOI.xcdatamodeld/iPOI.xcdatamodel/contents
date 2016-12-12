@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
+        <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUsedTimestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <fetchRequest name="AllExpired" entity="Image" predicateString="lastUsedTimestamp &lt; $DATE"/>
+    <fetchRequest name="ImageWithID" entity="Image" predicateString="imageID == $ID"/>
+    <elements>
+        <element name="Image" positionX="-63" positionY="-18" width="128" height="90"/>
+    </elements>
 </model>

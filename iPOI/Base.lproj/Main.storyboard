@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="1" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQB-oZ-IEG" id="MH7-qB-w1n">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clh-cJ-iNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305.7971014492755" y="-585.32608695652175"/>
+            <point key="canvasLocation" x="2305.5999999999999" y="-585.60719640179911"/>
         </scene>
         <!--Достопримечательность-->
         <scene sceneID="IRr-SM-1kO">
@@ -204,7 +204,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6U9-cO-gWi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6U9-cO-gWi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.86502667354072327" green="0.92202453810930429" blue="0.9415016770362854" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -339,7 +339,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6d4-zf-2jY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Геолокация" image="googlelogo_light_56x20_with_2_stroke_color_60x22pt.png" id="fW1-DI-Nhj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HzH-jQ-lmP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HzH-jQ-lmP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.81214175913808817" green="0.98132258650000004" blue="0.82056579462504131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

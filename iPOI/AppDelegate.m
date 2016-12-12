@@ -11,10 +11,15 @@
 #import <GooglePlaces/GooglePlaces.h>
 #import <CoreData/CoreData.h>
 
-@interface AppDelegate ()
+static NSString *const kImageAllExpired = @"AllExpired";
+
+@interface AppDelegate (){
+    NSManagedObjectModel *_managedObjectModel;
+    NSManagedObjectContext *_managedObjectContext;
+    NSPersistentStoreCoordinator *_persistentStoreCoordinator;
+}
 
 @end
-
 
 @implementation AppDelegate
 
@@ -29,6 +34,8 @@
     
     [GMSServices provideAPIKey:googleAPIKey];    
     [GMSPlacesClient provideAPIKey:googleAPIKey];
+    
+    [self deleteExpiredData];
         
     return YES;
 }
@@ -58,6 +65,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - CoreData
 
 - (void)saveContext{
     NSError *error = nil;
@@ -96,7 +105,7 @@
 {
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
-    }
+    }    
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iPOI.sqlite"];
     
@@ -109,6 +118,33 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+#pragma mark - DataBase func
+
+- (void)deleteExpiredData
+{
+    NSDate *expireDate = [[NSDate date] dateByAddingTimeInterval: -60*60*24*30];    // 30 days
+
+    NSDictionary *subs = @{@"DATE" : expireDate};
+    NSFetchRequest *request = [self.managedObjectModel fetchRequestFromTemplateWithName:kImageAllExpired substitutionVariables:subs];
+    
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request
+                                                                error:&error];
+    if(error == nil)
+    {
+        for (NSManagedObject *object in results)
+        {
+            [self.managedObjectContext deleteObject:object];
+        }
+        
+        [self saveContext];
+    }
+    else
+    {
+        NSLog(@"Error fetch request: %@", [error localizedDescription]);
+    }
 }
 
 #pragma mark - Application's Documents directory
