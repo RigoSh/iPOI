@@ -9,10 +9,11 @@
 #import "iPOIDetailController.h"
 #import "iPOIAPI.h"
 #import "POIPhotoCell.h"
+#import <iCarousel.h>
 
 static NSString *const poiPhotoCellID = @"POI Photo cell ID";
 
-@interface iPOIDetailController ()
+@interface iPOIDetailController () <iCarouselDataSource, iCarouselDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *poiDetailTable;
@@ -22,6 +23,7 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *openLabel;
+@property (nonatomic, strong) IBOutlet iCarousel *carousel;
 
 @end
 
@@ -35,7 +37,8 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
     // Do any additional setup after loading the view.
     
      _dataGetSuccess = NO;
-    
+    self.carousel.type = iCarouselTypeRotary;
+
     if (!self.poiPlaceID)
     {
         NSLog(@"Error: invocation without setting <placeID> denied.");
@@ -60,7 +63,8 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
                                  self.ratingLabel.text = [NSString stringWithFormat: @"%@", [_poiAPI poiDetailRating]];
                                  self.openLabel.text = ([_poiAPI poiDetailOpenNow] ? @"Открыт" : @"Закрыт");
                                  
-                                 [self.poiDetailTable reloadData];
+//                                 [self.poiDetailTable reloadData];
+                                 [self.carousel reloadData];
                              }
                              failure:^(NSError *error) {
                                  _dataGetSuccess = NO;
@@ -72,6 +76,22 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - iCarousel View lifecycle
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    //free up memory by releasing subviews
+    self.carousel = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
 
 #pragma mark - Table view data source
 
@@ -108,6 +128,53 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
                         }];
     
     return cell;
+}
+
+#pragma mark - iCarousel methods
+
+//return the total number of items in the carousel
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    if(_dataGetSuccess)
+    {
+        NSInteger cnt = [_poiAPI poiDetailPhotoCount];
+        return cnt;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+{
+    CGFloat contentImageWidth = self.carousel.bounds.size.width*2.0f/3.0f;
+    CGFloat contentImageHeight = self.carousel.bounds.size.height*2.0f/3.0f;
+    
+    UIImageView *contentView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, contentImageWidth, contentImageHeight)];
+    
+    __weak UIImageView *weakContentView = contentView;
+    [_poiAPI getPOIPhotoWithRef:[_poiAPI poiDetailPhotoRefAtIndex:index]
+                        success:^(id responseObject) {
+                            weakContentView.image = responseObject;
+                            weakContentView.contentMode = UIViewContentModeScaleToFill;
+                            [weakContentView setNeedsLayout];
+                        } failure:^(NSError *error) {
+                            NSLog(@"Request error: %@", [error localizedDescription]);
+                        }];
+    
+//    contentView.image = [UIImage imageNamed:@"PlaceHolderImage.png"]; // placeholder image
+    
+    return contentView;
+}
+
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+{
+    if (option == iCarouselOptionSpacing)
+    {
+        return value * 1.1;
+    }
+    return value;
 }
 
 @end

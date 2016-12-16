@@ -24,19 +24,22 @@ PODS:
     - GooglePlaces (= 2.1.1)
   - GooglePlaces (2.1.1):
     - GoogleMaps/Base (= 2.1.1)
+  - iCarousel (1.8.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - iCarousel (~> 1.8.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GooglePlacePicker: 665f39f931f2df32f9dd3fcc45f7e8abf71e535c
   GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
 
-PODFILE CHECKSUM: 549035219754967f17b54e19662a503503d0e6c2
+PODFILE CHECKSUM: 469f3aa7145fe2dbf681480c093771dc7e1f3c95
 
 COCOAPODS: 1.1.1
