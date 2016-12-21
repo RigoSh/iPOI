@@ -6,4 +6,5 @@ target 'iPOI' do
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'iCarousel', '~> 1.8.3'
+    pod 'SimulatorRemoteNotifications', '~> 0.0.3'
 end

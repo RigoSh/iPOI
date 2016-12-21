@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
 #import <CoreData/CoreData.h>
+#import <UIApplication+SimulatorRemoteNotifications.h>
 
 static NSString *const kImageAllExpired = @"AllExpired";
 
@@ -36,7 +37,12 @@ static NSString *const kImageAllExpired = @"AllExpired";
     [GMSPlacesClient provideAPIKey:googleAPIKey];
     
     [self deleteExpiredData];
-        
+    
+#if DEBUG
+    application.remoteNotificationsPort = 9930;     // optional
+    [application listenForRemoteNotifications];
+#endif
+    
     return YES;
 }
 
@@ -64,6 +70,53 @@ static NSString *const kImageAllExpired = @"AllExpired";
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - remote notifications
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Device token = \"%@\"", [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding]);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+    [[NSException exceptionWithName:@"MethodShouldNotHaveBeenCalledException"
+                             reason:@"application:didReceiveRemoteNotification: was called instead of application:didReceiveRemoteNotification:fetchCompletionHandler:"
+                           userInfo:nil] raise];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+{
+    
+    NSLog(@"Remote notification = %@", userInfo);
+    
+    if (application.applicationState == UIApplicationStateActive)
+    {
+        
+        if (application.applicationState == UIApplicationStateActive)
+        {
+            UIAlertController *alertController =
+            [UIAlertController alertControllerWithTitle:@"Remote notification received"
+                                                message:[NSString stringWithFormat:@"application:didReceiveRemoteNotification:fetchCompletionHandler:\n%@", [userInfo description]]
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"принято!"
+                                                                           style:UIAlertActionStyleDefault
+                                                             handler:nil];
+            [alertController addAction:okAction];
+            
+            [self.window.rootViewController presentViewController:alertController
+                                                         animated:YES
+                                                       completion:nil];
+        }
+        
+    } else {
+        // app is background, do background stuff
+        NSLog(@"Remote notification received while in background");
+    }
+    
+    handler(UIBackgroundFetchResultNoData);
 }
 
 #pragma mark - CoreData

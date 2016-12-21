@@ -25,6 +25,7 @@ PODS:
   - GooglePlaces (2.1.1):
     - GoogleMaps/Base (= 2.1.1)
   - iCarousel (1.8.3)
+  - SimulatorRemoteNotifications (0.0.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - GooglePlacePicker
   - GooglePlaces
   - iCarousel (~> 1.8.3)
+  - SimulatorRemoteNotifications (~> 0.0.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -39,7 +41,8 @@ SPEC CHECKSUMS:
   GooglePlacePicker: 665f39f931f2df32f9dd3fcc45f7e8abf71e535c
   GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  SimulatorRemoteNotifications: 1610643e0582b2af67bc254b071ace4077e8ef86
 
-PODFILE CHECKSUM: 469f3aa7145fe2dbf681480c093771dc7e1f3c95
+PODFILE CHECKSUM: d8545a49fbd4d231b617c4bf98a139882274d19c
 
 COCOAPODS: 1.1.1

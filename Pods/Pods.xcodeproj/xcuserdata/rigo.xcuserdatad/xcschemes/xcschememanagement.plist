@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SimulatorRemoteNotifications.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>iCarousel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5734B886AD4695B0E72E7CD65ACFDC69</key>
+		<key>3A40FB32EBF8BEA129C8BFD001C7BA91</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4196E6EAE434214F466B62A5D655FD6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

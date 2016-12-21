@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4196E6EAE434214F466B62A5D655FD6D'
-               BlueprintName = 'Pods-iPOI'
+               BlueprintIdentifier = '3A40FB32EBF8BEA129C8BFD001C7BA91'
+               BlueprintName = 'SimulatorRemoteNotifications'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-iPOI.a'>
+               BuildableName = 'libSimulatorRemoteNotifications.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
