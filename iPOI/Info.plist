@@ -25,7 +25,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Использвование локации - всегда.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Использвование локации - по требованию.</string>
+	<string>Разрешите приложению использовать ваше текущее местоположение.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>

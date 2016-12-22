@@ -266,8 +266,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEP-rB-xqR" customClass="SGProgressIndicator">
                                 <rect key="frame" x="107" y="268" width="200" height="200"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="1" green="0.30418437240000001" blue="0.27106640770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="7P6-01-6wo"/>
                                     <constraint firstAttribute="height" constant="200" id="KEa-D6-uwL"/>
