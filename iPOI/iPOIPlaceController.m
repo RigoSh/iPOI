@@ -8,6 +8,7 @@
 
 #import "iPOIPlaceController.h"
 #import <GooglePlacePicker/GooglePlacePicker.h>
+#import "SWRevealViewController.h"
 
 @interface iPOIPlaceController () <GMSAutocompleteViewControllerDelegate>
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placePhoneLabel;
 @property (weak, nonatomic) IBOutlet UIButton *placeButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end
 
@@ -28,6 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    SWRevealViewController *revealController = self.revealViewController;
+    if(revealController)
+    {
+        [self.sidebarButton setTarget:revealController];
+        [self.sidebarButton setAction:@selector(revealToggle:)];
+        [self.view addGestureRecognizer:revealController.panGestureRecognizer];
+    }
     
     self.placeButton.hidden = YES;
 }

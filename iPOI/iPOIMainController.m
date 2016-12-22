@@ -8,6 +8,7 @@
 
 #import "iPOIMainController.h"
 #import "iPOIAPI.h"
+#import "SWRevealViewController.h"
 
 static NSString *const poiCellID = @"POI cell ID";
 static NSString *const kDetailPOISegueID = @"detailed POI segue ID";
@@ -16,6 +17,8 @@ static NSString *const kDetailPOISegueID = @"detailed POI segue ID";
 
 @property (strong, nonatomic) IBOutlet UITableView *poiTableView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @end
 
@@ -28,6 +31,7 @@ static NSString *const kDetailPOISegueID = @"detailed POI segue ID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.searchButton.layer.cornerRadius = 10;
     
     _ipoiAPI = [iPOIAPI sharedInstance];
     _locationManager = [[CLLocationManager alloc] init];
@@ -39,6 +43,14 @@ static NSString *const kDetailPOISegueID = @"detailed POI segue ID";
     [_locationManager startUpdatingLocation];
     
     [self.mapView animateToZoom:0];
+    
+    SWRevealViewController *revealController = self.revealViewController;
+    if(revealController)
+    {
+        [self.sidebarButton setTarget:revealController];
+        [self.sidebarButton setAction:@selector(revealToggle:)];
+        [self.view addGestureRecognizer:revealController.panGestureRecognizer];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

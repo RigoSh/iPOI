@@ -11,12 +11,7 @@
 #import "POIPhotoCell.h"
 #import <iCarousel.h>
 
-static NSString *const poiPhotoCellID = @"POI Photo cell ID";
-
 @interface iPOIDetailController () <iCarouselDataSource, iCarouselDelegate>
-
-
-@property (weak, nonatomic) IBOutlet UITableView *poiDetailTable;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -46,11 +41,7 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
         [self.navigationController popViewControllerAnimated:YES];
         return;
     }
-    
-    self.poiDetailTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.poiDetailTable.contentInset = UIEdgeInsetsZero;
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-    
+        
     _poiAPI = [iPOIAPI sharedInstance];
     
     [_poiAPI getPOIDetailWithPlaceID:self.poiPlaceID
@@ -63,7 +54,6 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
                                  self.ratingLabel.text = [NSString stringWithFormat: @"%@", [_poiAPI poiDetailRating]];
                                  self.openLabel.text = ([_poiAPI poiDetailOpenNow] ? @"Открыт" : @"Закрыт");
                                  
-//                                 [self.poiDetailTable reloadData];
                                  [self.carousel reloadData];
                              }
                              failure:^(NSError *error) {
@@ -90,44 +80,6 @@ static NSString *const poiPhotoCellID = @"POI Photo cell ID";
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
-}
-
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return (_dataGetSuccess ? 1: 0);
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if(_dataGetSuccess)
-    {
-        NSInteger cnt = [_poiAPI poiDetailPhotoCount];
-        return cnt;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    POIPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:poiPhotoCellID
-                                                         forIndexPath:indexPath];
-    
-    __weak POIPhotoCell *weakCell = cell;
-    [_poiAPI getPOIPhotoWithRef:[_poiAPI poiDetailPhotoRefAtIndex:indexPath.row]
-                        success:^(id responseObject) {
-                            weakCell.photoImage = responseObject;
-                            [weakCell setNeedsLayout];
-                        } failure:^(NSError *error) {
-                            NSLog(@"Request error: %@", [error localizedDescription]);
-                        }];
-    
-    return cell;
 }
 
 #pragma mark - iCarousel methods

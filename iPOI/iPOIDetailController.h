@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPOIDetailController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface iPOIDetailController : UIViewController
 
 @property (copy, nonatomic) NSString *poiPlaceID;
 

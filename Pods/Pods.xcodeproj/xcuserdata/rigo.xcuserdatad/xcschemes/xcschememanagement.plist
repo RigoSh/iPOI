@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SGProgressIndicator-SGProgressIndicator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SGProgressIndicator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SimulatorRemoteNotifications.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +37,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3A40FB32EBF8BEA129C8BFD001C7BA91</key>
+		<key>47B0025CAAE61268B23F30301F44FFA6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4196E6EAE434214F466B62A5D655FD6D</key>
+		<key>9239E5AC49DB61FAE385C5D25CC36881</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B292FC0CC1D2049976A5FD9367B26039</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7F3088491BABF7D57A994044D0B9BC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

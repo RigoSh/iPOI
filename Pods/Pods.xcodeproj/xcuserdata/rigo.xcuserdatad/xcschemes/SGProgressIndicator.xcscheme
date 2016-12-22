@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B292FC0CC1D2049976A5FD9367B26039'
-               BlueprintName = 'Pods-iPOI'
+               BlueprintIdentifier = 'D7F3088491BABF7D57A994044D0B9BC7'
+               BlueprintName = 'SGProgressIndicator'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-iPOI.a'>
+               BuildableName = 'libSGProgressIndicator.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
