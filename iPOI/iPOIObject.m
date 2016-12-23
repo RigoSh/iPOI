@@ -9,6 +9,7 @@
 #import "iPOIObject.h"
 
 static NSString *const kSearchResults   = @"results";
+static NSString *const kSearchPagetoken = @"next_page_token";
 static NSString *const kPOIName         = @"name";
 static NSString *const kPOIPlaceID      = @"place_id";
 static NSString *const kPOIIconURL      = @"icon";
@@ -20,7 +21,7 @@ static NSString *const kPOIGeometry     = @"geometry";
 static NSString *const kPOILocation     = @"location";
 
 @implementation iPOIObject{
-    NSDictionary *_poiResponse;
+    NSMutableDictionary *_poiResponse;
 }
 
 - (instancetype) initWithResponse:(NSDictionary *)response
@@ -29,7 +30,7 @@ static NSString *const kPOILocation     = @"location";
     
     if (self)
     {
-        _poiResponse = response;
+        _poiResponse = [NSMutableDictionary dictionaryWithDictionary:response];
     }
     
     return self;
@@ -46,6 +47,20 @@ static NSString *const kPOILocation     = @"location";
     else
     {
         return 0;
+    }
+}
+
+- (NSString *)poiPagetoken
+{
+    if(_poiResponse)
+    {
+        NSString *pagetoken = _poiResponse[kSearchPagetoken];
+        
+        return pagetoken;
+    }
+    else
+    {
+        return nil;
     }
 }
 
@@ -71,6 +86,22 @@ static NSString *const kPOILocation     = @"location";
     }
 }
 
+- (void)poiUnionWithResponse:(NSDictionary *)responseObject
+{
+    if(_poiResponse)
+    {
+        _poiResponse[kSearchPagetoken] = responseObject[kSearchPagetoken];
+        
+        NSMutableArray *results = [NSMutableArray arrayWithArray:responseObject[kSearchResults]];
+        [results addObjectsFromArray:_poiResponse[kSearchResults]];
+        
+        _poiResponse[kSearchResults] = results;
+    }
+    else
+    {
+        return;
+    }
+}
 
 - (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index
 {

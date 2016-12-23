@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__46-[iPOIAPI addPOIAndFinishWithSuccess:failure:]_block_invoke:iPOIAPI.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[iPOIHTTPDataManager getPOIForPagetoken:success:failure:]:iPOIHTTPDataManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "__35-[iPOIMainController updatePOIData]_block_invoke:iPOIMainController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[iPOIMainController tableView:numberOfRowsInSection:]:iPOIMainController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[_ipoiAPI poiCount]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__56-[iPOIHTTPDataManager getPOIAtLocation:success:failure:]_block_invoke:iPOIHTTPDataManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "__58-[iPOIHTTPDataManager getPOIForPagetoken:success:failure:]_block_invoke:iPOIHTTPDataManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[iPOIObject poiUnionWithResponse:]:iPOIObject.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[iPOIAPI addPOIAndFinishWithSuccess:failure:]:iPOIAPI.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[iPOIMainController locationManager:didUpdateLocations:]:iPOIMainController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_curLocation.coordinate.longitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

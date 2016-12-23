@@ -17,4 +17,8 @@
                   success:(void(^)(id responseObject))success
                   failure:(void(^)(NSError *error))failure;
 
+- (void)getPOIForPagetoken:(NSString *)pagetoken
+                   success:(void(^)(id responseObject))success
+                   failure:(void(^)(NSError *error))failure;
+
 @end

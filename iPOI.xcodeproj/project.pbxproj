@@ -37,6 +37,7 @@
 		0FEA785D1E0ACC2200FA60E6 /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEA784C1E0ACC2200FA60E6 /* photo.png */; };
 		0FEA785E1E0ACC2200FA60E6 /* tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEA784D1E0ACC2200FA60E6 /* tag.png */; };
 		0FEA785F1E0ACC2200FA60E6 /* wishlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FEA784E1E0ACC2200FA60E6 /* wishlist.png */; };
+		0FEB273E1E0D7D0D006E2170 /* POIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB273D1E0D7D0D006E2170 /* POIItem.m */; };
 		0FEBC13F1DFC21B30097B28A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEBC13E1DFC21B30097B28A /* CoreData.framework */; };
 		0FEBC1421DFC22660097B28A /* iPOI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FEBC1401DFC22660097B28A /* iPOI.xcdatamodeld */; };
 		0FED8D0A1DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FED8D091DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png */; };
@@ -91,6 +92,8 @@
 		0FEA784C1E0ACC2200FA60E6 /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.png; sourceTree = "<group>"; };
 		0FEA784D1E0ACC2200FA60E6 /* tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tag.png; sourceTree = "<group>"; };
 		0FEA784E1E0ACC2200FA60E6 /* wishlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wishlist.png; sourceTree = "<group>"; };
+		0FEB273C1E0D7D0D006E2170 /* POIItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIItem.h; sourceTree = "<group>"; };
+		0FEB273D1E0D7D0D006E2170 /* POIItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIItem.m; sourceTree = "<group>"; };
 		0FEBC13E1DFC21B30097B28A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0FEBC1411DFC22660097B28A /* iPOI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iPOI.xcdatamodel; sourceTree = "<group>"; };
 		0FED8D091DFAB45F00E7A146 /* googlelogo_light_56x20_with_2_stroke_color_60x22pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googlelogo_light_56x20_with_2_stroke_color_60x22pt.png; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				0FB80E5F1DF6BC9E00709113 /* iPOIObject.m */,
 				0F7B10551DF9881A00963671 /* iPOIDetailObject.h */,
 				0F7B10561DF9881A00963671 /* iPOIDetailObject.m */,
+				0FEB273C1E0D7D0D006E2170 /* POIItem.h */,
+				0FEB273D1E0D7D0D006E2170 /* POIItem.m */,
 				0FEBC1401DFC22660097B28A /* iPOI.xcdatamodeld */,
 			);
 			name = Model;
@@ -442,6 +447,7 @@
 				0FED8D181DFAD13E00E7A146 /* iPOIPlaceController.m in Sources */,
 				0FEF2E171DF864D100B65771 /* POIPhotoCell.m in Sources */,
 				0FE93F5B1DF9A258004B772F /* iPOIHTTPDetailDataManager.m in Sources */,
+				0FEB273E1E0D7D0D006E2170 /* POIItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

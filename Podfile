@@ -7,6 +7,7 @@ target 'iPOI' do
     pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
+    pod 'Google-Maps-iOS-Utils'
     pod 'iCarousel', '~> 1.8.3'
     pod 'SimulatorRemoteNotifications', '~> 0.0.3'
     pod 'SGProgressIndicator'

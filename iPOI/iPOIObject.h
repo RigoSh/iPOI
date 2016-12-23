@@ -16,8 +16,11 @@
 - (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index;
 
 - (NSInteger)  poiCount;
+- (NSString *) poiPagetoken;
 - (NSString *) poiNameAtIndex:(NSInteger)index;
 - (NSString *) poiPlaceIDAtIndex:(NSInteger)index;
 - (NSString *) poiIconURLStringAtIndex:(NSInteger)index;
+
+- (void)poiUnionWithResponse:(NSDictionary *)responseObject;
 
 @end

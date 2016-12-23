@@ -63,4 +63,23 @@ static NSString *const baseURLString = @"https://maps.googleapis.com/maps/api/pl
       }];
 }
 
+- (void)getPOIForPagetoken:(NSString *)pagetoken
+                   success:(void(^)(id responseObject))success
+                   failure:(void(^)(NSError *error))failure;
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    params[@"key"] = _apiKey;
+    params[@"pagetoken"] = pagetoken;
+    
+    [self GET:@"json"
+   parameters:params
+     progress:nil
+      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+          success(responseObject);
+      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          failure(error);
+      }];
+}
+
 @end

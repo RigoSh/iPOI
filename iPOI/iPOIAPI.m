@@ -16,7 +16,7 @@
 #import <UIImageView+AFNetworking.h>
 #import <CoreData/CoreData.h>
 
-static NSInteger const maxPOICount       = 20;
+//static NSInteger const maxPOICount       = 20;
 static NSInteger const maxPOIPhotoCount  = 10;
 static NSString *const kResponseStatus   = @"status";
 static NSString *const kPlaceHolderImage = @"PlaceHolderImage.png";
@@ -64,6 +64,12 @@ static NSString *const kImageEntity        = @"Image";
     return self;
 }
 
+- (void)poiClear
+{
+    _poi = nil;
+    _poiDetail = nil;
+}
+
 - (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index
 {
     return [_poi poiCoordinate2DAtIndex:index];
@@ -79,14 +85,7 @@ static NSString *const kImageEntity        = @"Image";
     }
     else
     {
-        if ([_poi poiCount] > maxPOICount)
-        {
-            return maxPOICount;
-        }
-        else
-        {
-            return [_poi poiCount];
-        }
+        return [_poi poiCount];
     }
 }
 
@@ -177,6 +176,37 @@ static NSString *const kImageEntity        = @"Image";
                                   }
                                   
                                   success();
+                              }
+                              failure:^(NSError *error) {
+                                  _poi = nil;
+                                  failure(error);
+                              }];
+}
+
+- (void)addPOIAndFinishWithSuccess:(void(^)(BOOL haveNewPOI))success
+                 failure:(void(^)(NSError *error))failure
+{
+    if(_poi == nil)
+    {
+        success(NO);
+        return;
+    }
+    else if ([_poi poiPagetoken] == nil)
+    {
+        success(NO);
+        return;
+    }
+    
+    [_poiDataManager getPOIForPagetoken:[_poi poiPagetoken]
+                              success:^(id responseObject) {
+                                  if([responseObject[kResponseStatus] isEqualToString:@"OK"] ||
+                                     [responseObject[kResponseStatus] isEqualToString:@"ZERO_RESULTS"])
+                                  {
+                                      [_poi poiUnionWithResponse:responseObject];
+                                      success(YES);
+                                  }
+                                  
+                                  success(NO);
                               }
                               failure:^(NSError *error) {
                                   _poi = nil;

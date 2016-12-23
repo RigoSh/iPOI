@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9239E5AC49DB61FAE385C5D25CC36881'
+               BlueprintIdentifier = 'D81CD545E3BD314D5582927C400BFC0A'
                BlueprintName = 'SGProgressIndicator-SGProgressIndicator'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SGProgressIndicator.bundle'>

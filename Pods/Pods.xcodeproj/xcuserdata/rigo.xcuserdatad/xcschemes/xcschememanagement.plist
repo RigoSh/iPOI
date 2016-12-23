@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Google-Maps-iOS-Utils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iPOI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>47B0025CAAE61268B23F30301F44FFA6</key>
+		<key>03BC6BD04B25A29B09C5F051C6ADF1ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9239E5AC49DB61FAE385C5D25CC36881</key>
+		<key>107B6DB41AB49C87E834011A936C9E6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>527BF3412E55C982FF112D80C19FACEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,12 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B292FC0CC1D2049976A5FD9367B26039</key>
+		<key>A4F8C2DC4FB48FE107D72076069E2459</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7F3088491BABF7D57A994044D0B9BC7</key>
+		<key>D81CD545E3BD314D5582927C400BFC0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

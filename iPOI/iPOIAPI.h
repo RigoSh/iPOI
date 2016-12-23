@@ -13,6 +13,7 @@
 @interface iPOIAPI : NSObject
 
 + (instancetype) sharedInstance;
+- (void)poiClear;
 
 - (CLLocationCoordinate2D) poiCoordinate2DAtIndex:(NSInteger)index;
 
@@ -32,6 +33,9 @@
 - (void) getPOIAtLocation:(CLLocation *)location
                   success:(void(^)())success
                   failure:(void(^)(NSError *error))failure;
+
+- (void)addPOIAndFinishWithSuccess:(void(^)(BOOL haveNewPOI))success
+                           failure:(void(^)(NSError *error))failure;
 
 - (void) getPOIIconForCell:(UITableViewCell *)cell
                 AtIndexRow:(NSInteger)indexRow
